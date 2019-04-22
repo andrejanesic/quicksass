@@ -1,0 +1,23 @@
+/// Creates font and line height helper classes based on size matrix $text-sizes
+/// @require values, @see $text-sizes
+///                  @see $text-size-base
+///                  @see $line-height
+@each $bp in map-keys($text-sizes) {
+  $bp-infix: "";
+  @if $bp != null {
+    $bp-infix: "-#{$bp}";
+  }
+
+  $set: map-get($text-sizes, $bp);
+  $set-length: length($set);
+  @include bp-from($bp) {
+    @for $i from $set-length through 1 {
+      $val: $text-size-base * nth($set, $i);
+      @if $i == 1 {
+        .fh#{$bp-infix} { font-size: #{$val}; }
+      } @else {
+        .fh#{$bp-infix}-#{($set-length - $i) + 1} { font-size: #{$val}; }
+      }
+    }
+  }
+}

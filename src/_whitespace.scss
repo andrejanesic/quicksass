@@ -1,0 +1,51 @@
+/// Creates whitespace helper classes (default for padding and margin),
+/// based on $whitespace-sizes
+/// @require values, @see $whitespace-sizes
+///                  @see $whitespace-quantifier
+///                  @see $whitespace-props
+///                  @see $whitespace-orients
+@each $bp in (append(map-keys($breakpoints), null)) {
+  
+  /// If no breakpoint size specified (default value)
+  $bp-infix: null;
+  @if $bp != null {
+    $bp-infix: "-#{$bp}";
+  } @else {
+    $bp-infix: "";
+  }
+
+  @include bp-from($bp) {
+    @each $prop in map-keys($whitespace-props) {
+      $class: map-get($whitespace-props, $prop);
+      @each $prop-mod in map-keys($whitespace-orients) {
+        $orient: map-get($whitespace-orients, $prop-mod);
+        @each $size in $whitespace-sizes {
+          $mod-infix: "";
+          @if $prop-mod == "x" {
+            $mod-infix: "x";
+          } @else if $prop-mod == "y" {
+            $mod-infix: "y";
+          } @else if $prop-mod == null {
+            $mod-infix: "";
+          } @else {
+            $mod-infix: $orient;
+          }
+          $val: $size * $whitespace-quantifier;
+          .#{$class}#{$mod-infix}#{$bp-infix}-#{$size} {
+            @if $prop-mod == "x" {
+              #{$prop}-left: $val;
+              #{$prop}-right: $val;
+            } @else if $prop-mod == "y" {
+              #{$prop}-top: $val;
+              #{$prop}-bottom: $val;
+            } @else if $prop-mod == null {
+              #{$prop}: $val;
+            } @else {
+              #{$prop}-#{$prop-mod}: $val;
+            }
+          }
+        }
+      }
+    }
+  }
+}

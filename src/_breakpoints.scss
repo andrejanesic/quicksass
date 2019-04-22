@@ -1,0 +1,22 @@
+/// Mixin for providing responsive content based on $breakpoints
+/// @name bp-from
+/// @param {String} $size - Breakpoint name (e.g. lg for desktop devices)
+/// @content The content to be wrapped with media query
+/// @output Content wrapped with media query on provided $size parameter
+/// @require values, @see $breakpoints
+@mixin bp-from($size) {
+  /// If any screen size was provided
+  @if $size != null {
+    @if map-has-key($breakpoints, $size) {
+      /// Print the content wrapped in media query
+      @media (min-width: #{map-get($breakpoints, $size)}) { @content; }
+    } @else {
+      /// @throw Throws error if an invalid breapkoint size was given
+      @error "Breakpoint \"#{$size}\" isn't defined in $breakpoints.";
+    }
+  }
+  /// If no screen size was provided, return default
+  @else {
+    @content;
+  }
+}
