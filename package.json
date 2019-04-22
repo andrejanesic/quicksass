@@ -1,0 +1,28 @@
+{
+  "name": "quicksass",
+  "version": "0.1.0",
+  "description": "Highly customizable and very lightweight Sass framework for generating helper classes.",
+  "main": "quicksass.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrejanesic/quicksass.git"
+  },
+  "keywords": [
+    "sass",
+    "scss",
+    "framework",
+    "utilities",
+    "helper",
+    "classes",
+    "responsive"
+  ],
+  "author": "Andreja Nešić",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrejanesic/quicksass/issues"
+  },
+  "homepage": "https://github.com/andrejanesic/quicksass#readme"
+}
