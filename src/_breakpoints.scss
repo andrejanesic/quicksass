@@ -4,7 +4,7 @@
 /// @content The content to be wrapped with media query
 /// @output Content wrapped with media query on provided $size parameter
 /// @require values, @see $breakpoints
-@mixin bp-from($size) {
+@mixin bp-from($size: null) {
   /// If any screen size was provided
   @if $size != null {
     @if map-has-key($breakpoints, $size) {

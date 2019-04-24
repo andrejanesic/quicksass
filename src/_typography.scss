@@ -15,8 +15,14 @@
       $val: $text-size-base * nth($set, $i);
       @if $i == 1 {
         .fh#{$bp-infix} { font-size: #{$val}; }
+        @if nth($line-height, 1) == true {
+          .lh#{$bp-infix} { line-height: #{$val + nth($line-height, 2)}; }
+        }
       } @else {
         .fh#{$bp-infix}-#{($set-length - $i) + 1} { font-size: #{$val}; }
+        @if nth($line-height, 1) == true {
+          .fh#{$bp-infix}-#{($set-length - $i) + 1} { line-height: #{$val + nth($line-height, 2)}; }
+        }
       }
     }
   }
