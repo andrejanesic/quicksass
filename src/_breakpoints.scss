@@ -20,3 +20,36 @@
     @content;
   }
 }
+
+/// Loops through given matrix of classes, props and values and sets them
+/// for each of the responsive breakpoints.
+/// @example set responsive display classes, @see display
+/// @requires $breakpoints
+@mixin make-responsive-class($classes) {
+  @each $bp in append(map-keys($breakpoints), null) {
+
+    /// If no breakpoint size specified (default value)
+    $bp-infix: null;
+    @if $bp != null {
+      $bp-infix: "-#{$bp}";
+    } @else {
+      $bp-infix: "";
+    }
+
+    @include bp-from($bp) {
+      @each $obj in $classes {
+        $prefix: map-get($obj, "prefix");
+        $suffix: map-get($obj, "suffix");
+        $prop:   map-get($obj, "prop");
+        $val:    map-get($obj, "val");
+        @if $suffix != "" {
+          $suffix: -#{$suffix};
+        }
+        .#{$prefix}#{$bp-infix}#{$suffix} {
+          #{$prop}: #{$val};
+          @content
+        }
+      }
+    }
+  }
+}

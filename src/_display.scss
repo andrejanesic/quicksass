@@ -1,2 +1,36 @@
 /// Creates display helper classes based on $breakpoints
-/// @require values, @see $breakpoints
+/// @require values, @requires make-responsive-class, @see $breakpoints
+@include make-responsive-class(
+  (
+    (
+      prefix: "d",
+      suffix: "none",
+      prop: "display",
+      val: "none"
+    ),
+    (
+      prefix: "d",
+      suffix: "block",
+      prop: "display",
+      val: "block"
+    ),
+    (
+      prefix: "d",
+      suffix: "inline",
+      prop: "display",
+      val: "inline"
+    ),
+    (
+      prefix: "d",
+      suffix: "inline-block",
+      prop: "display",
+      val: "inline-block"
+    ),
+    (
+      prefix: "d",
+      suffix: "flex",
+      prop: "display",
+      val: "flex"
+    )
+  )
+) {}
