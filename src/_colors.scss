@@ -1,6 +1,6 @@
 /// Creates helper classes for colors based on color palette $colors
 /// @require values, @see $colors
 @each $name, $val in $colors {
-  .tc-#{$name} { color: $val; }
+  .c-#{$name} { color: $val; }
   .bgc-#{$name} { background-color: $val; }
 }

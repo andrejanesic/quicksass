@@ -18,5 +18,21 @@ $classes: ();
       val: "#{$size}%"
     ))
   );
+  $classes: append($classes,
+    ((
+      prefix: "vw",
+      suffix: "#{$size}",
+      prop: "width",
+      val: "#{$size}vw"
+    ))
+  );
+  $classes: append($classes,
+    ((
+      prefix: "vh",
+      suffix: "#{$size}",
+      prop: "height",
+      val: "#{$size}vh"
+    ))
+  );
 }
 @include make-responsive-class ($classes) {}
