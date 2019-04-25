@@ -1,0 +1,22 @@
+/// Creates responsive size helper classes for width and height
+/// @require values, @see $sizes
+$classes: ();
+@each $size in $sizes {
+  $classes: append($classes,
+    ((
+      prefix: "w",
+      suffix: "#{$size}",
+      prop: "width",
+      val: "#{$size}%"
+    ))
+  );
+  $classes: append($classes,
+    ((
+      prefix: "h",
+      suffix: "#{$size}",
+      prop: "height",
+      val: "#{$size}%"
+    ))
+  );
+}
+@include make-responsive-class ($classes) {}

@@ -15,7 +15,15 @@ $colors: (
   secondary: #7D6B7D,
   light: #FFF587,
   dark: #A3A1A8
-);
+) !default;
+
+
+
+/// @param {Map} $sizes - Responsive width and height options in percents,
+// relative to parent; used to create size helper classes
+$sizes: (
+  0, 20, 40, 60, 80, 100
+) !default;
 
 
 
@@ -38,7 +46,7 @@ $text-sizes: (
 /// Second argument controls how much the line height property should be
 /// incremented, with its base value calculated using parameters
 /// @see $text-size-base and @see $text-sizes
-$line-height: (true, 0.3rem);
+$line-height: (true, 0.3rem) !default;
 
 
 
