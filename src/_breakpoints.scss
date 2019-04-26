@@ -26,7 +26,7 @@
 /// @example set responsive display classes, @see display
 /// @requires $breakpoints
 @mixin make-responsive-class($classes) {
-  @each $bp in append(map-keys($breakpoints), null) {
+  @each $bp in (join(null, map-keys($breakpoints))) {
 
     /// If no breakpoint size specified (default value)
     $bp-infix: null;

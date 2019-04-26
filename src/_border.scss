@@ -1,0 +1,11 @@
+/// Creates border radius helper classes
+/// @require values, @see $border-radius
+@for $i from 1 through length($border-radius) {
+  $border: nth($border-radius, $i);
+  $size: #{$border * 1px};
+  .b-radius-#{$i} {
+    border-radius: #{$size} #{$size} #{$size} #{$size};
+    -moz-border-radius: #{$size} #{$size} #{$size} #{$size};
+    -webkit-border-radius: #{$size} #{$size} #{$size} #{$size};
+  }
+}

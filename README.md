@@ -9,9 +9,11 @@ Highly customizable and very lightweight Sass framework for generating helper cl
 │   README.md
 │   
 └───src
+        _border.scss ........ Creates helper classes for border radius
         _breakpoints.scss ... Mixin for responsive media query breakpoints
         _colors.scss ........ Creates helper classes for text and background color
         _display.scss ....... Creates helper classes for responsive display property
+        _size.scss .......... Creates helper classes for responsive element width and height
         _typography.scss .... Creates helper classes for responsive text sizes
         _values.scss ........ Default values used by other partials
         _whitespace.scss .... Creates helper classes for props such as padding and margin
@@ -19,4 +21,4 @@ Highly customizable and very lightweight Sass framework for generating helper cl
 
 ## Word of warning
 
-The file can get **bigger** if a lot of customization is added. Make sure to be rational with your tools and also **purge** any unused CSS rules.
+The file can get **bigger** if a lot of customization is added. Make sure to be rational with the amount of helper classes (don't add unnecessary customization options to `values`) and also **purge** any unused CSS rules.

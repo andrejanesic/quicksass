@@ -8,6 +8,13 @@ $breakpoints: (
 
 
 
+/// @param {List} $border-radius - Border radius sizes (multiplied by 1px)
+$border-radius: (
+  3, 6, 9, 12
+) !default;
+
+
+
 /// @param {Map} $colors - Color palette used to generate color and
 /// background-color helper classes
 $colors: (
