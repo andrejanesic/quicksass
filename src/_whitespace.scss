@@ -14,6 +14,9 @@
     $bp-infix: "";
   }
 
+  @if index($whitespace-sizes, 0) == null {
+    $whitespace-sizes: join(0, $whitespace-sizes);
+  }
   @include bp-from($bp) {
     @each $prop in map-keys($whitespace-props) {
       $class: map-get($whitespace-props, $prop);

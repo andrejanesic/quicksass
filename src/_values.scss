@@ -34,6 +34,14 @@ $sizes: (
 
 
 
+/// @param {Map} $font-families - Map of typefaces, used to generate font family
+/// helper classes
+$font-families: (
+  sans: (Helvetica, Arial, sans-serif),
+  serif: (Georgia, Arial, sans-serif),
+  default: sans
+) !default;
+
 /// @param {Number} $text-size-base - Cross-device text base size
 $text-size-base: 1rem !default;
 
