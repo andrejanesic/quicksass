@@ -1,6 +1,22 @@
-/// Creates helper classes for colors based on color palette $colors
+/// Creates responsive helper classes for colors based on color palette $colors
 /// @require values, @see $colors
+$classes: ();
 @each $name, $val in $colors {
-  .c-#{$name} { color: $val; }
-  .bgc-#{$name} { background-color: $val; }
+  $classes: append($classes,
+    ((
+      prefix: "c",
+      suffix: "#{$name}",
+      prop: "color",
+      val: "#{$val}"
+    ))
+  );
+  $classes: append($classes,
+    ((
+      prefix: "bgc",
+      suffix: "#{$name}",
+      prop: "background-color",
+      val: "#{$val}"
+    ))
+  );
 }
+@include make-responsive-class ($classes) {}
