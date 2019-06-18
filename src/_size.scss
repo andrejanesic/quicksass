@@ -1,5 +1,11 @@
 /// Creates responsive size helper classes for width and height
-/// @require values, @see $sizes
+
+/// @param {Map} $sizes - Responsive width and height options in percents,
+// relative to parent; used to create size helper classes
+$sizes: (
+  0, 20, 40, 60, 80, 100
+) !default;
+
 $classes: ();
 @each $size in $sizes {
   $classes: append($classes,

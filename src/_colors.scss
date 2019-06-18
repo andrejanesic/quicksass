@@ -1,5 +1,14 @@
-/// Creates responsive helper classes for colors based on color palette $colors
-/// @require values, @see $colors
+/// Creates responsive helper classes for colors based on palette @param $colors
+
+/// @param {Map} $colors - Color palette used to generate color and
+/// background-color helper classes
+$colors: (
+  primary: #FF665A,
+  secondary: #7D6B7D,
+  light: #FFF587,
+  dark: #A3A1A8
+) !default;
+
 $classes: ();
 @each $name, $val in $colors {
   $classes: append($classes,

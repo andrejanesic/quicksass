@@ -1,5 +1,5 @@
-/// Creates display helper classes based on $breakpoints
-/// @require values, @requires make-responsive-class, @see $breakpoints
+/// Creates display helper classes based on @param $breakpoints
+/// @require breakpoints, @require make-responsive-class
 @include make-responsive-class(
   (
     (

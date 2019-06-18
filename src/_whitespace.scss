@@ -1,9 +1,34 @@
-/// Creates whitespace helper classes (default for padding and margin),
-/// based on $whitespace-sizes
-/// @require values, @see $whitespace-sizes
-///                  @see $whitespace-quantifier
-///                  @see $whitespace-props
-///                  @see $whitespace-orients
+/// Creates whitespace helper classes (default for padding and margin)
+/// using @require breakpoints based on the following parameters:
+
+/// @param {List} $whitespace-sizes - Whitespace sizes
+$whitespace-sizes: (0, 1, 2, 3, 5, 8) !default;
+
+/// @param {Number} $whitespace-quantifier - The quantifier used to determine
+/// the value of a whitespace helper class property value, using
+/// @see $whitespace-sizes
+$whitespace-quantifier: 2px !default;
+
+/// @param {Map} $whitespace-props - Map of element properties to be modified
+/// Each key specifies the property CSS name, while the value is used to
+/// generate the class shorthand name
+$whitespace-props: (
+  "padding": "p",
+  "margin": "m",
+) !default;
+
+/// @param {Map} $whitespace-orients - Orientations of properties specified in
+/// @see $whitespace-props, should not be altered
+$whitespace-orients: (
+  null: null, /// for modifying all orientations
+  "x": null,  /// for modifying top and bottom values
+  "y": null,  /// for modifying left and right values
+  "top": "t",
+  "right": "r",
+  "bottom": "b",
+  "left": "l"
+);
+
 @each $bp in (join(null, map-keys($breakpoints))) {
   
   /// If no breakpoint size specified (default value)

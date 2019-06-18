@@ -15,9 +15,12 @@ Highly customizable and very lightweight Sass framework for generating helper cl
         _display.scss ....... Creates helper classes for responsive display property
         _size.scss .......... Creates helper classes for responsive element width and height
         _typography.scss .... Creates helper classes for responsive text sizes
-        _values.scss ........ Default values used by other partials
         _whitespace.scss .... Creates helper classes for props such as padding and margin
 ```
+
+## How to use
+
+`Git clone` into your project folder. Simply import `quicksass` if you need all modules, or import them partially from `src`. Make sure to check whether the module requires `breakpoints` *(most responsive classes do!)*.
 
 ## Word of warning
 

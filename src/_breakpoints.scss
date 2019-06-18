@@ -3,7 +3,15 @@
 /// @param {String} $size - Breakpoint name (e.g. lg for desktop devices)
 /// @content The content to be wrapped with media query
 /// @output Content wrapped with media query on provided $size parameter
-/// @require values, @see $breakpoints
+
+/// @param {List} $breakpoints - Responsive media query breakpoints
+$breakpoints: (
+  sm: 568px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px
+) !default;
+
 @mixin bp-from($size: null) {
   /// If any screen size was provided
   @if $size != null {
@@ -24,7 +32,7 @@
 /// Loops through given matrix of classes, props and values and sets them
 /// for each of the responsive breakpoints.
 /// @example set responsive display classes, @see display
-/// @requires $breakpoints
+/// @require $breakpoints
 @mixin make-responsive-class($classes) {
   @each $bp in (join(null, map-keys($breakpoints))) {
 

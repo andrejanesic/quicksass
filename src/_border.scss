@@ -1,8 +1,17 @@
 /// Creates border radius helper classes
-/// @require values, @see $border-radius
+
+/// @param {List} $border-radius - Border radius sizes (multiplied by
+/// coefficient @param $border-multiplier)
+$border-radius: (
+  3, 6, 9, 12
+) !default;
+
+/// @param $border-multiplier - Multiplier for the border radius size
+$border-multiplier: 1px;
+
 @for $i from 1 through length($border-radius) {
   $border: nth($border-radius, $i);
-  $size: #{$border * 1px};
+  $size: #{$border * $border-multiplier};
   .b-radius-#{$i} {
     border-radius: #{$size} #{$size} #{$size} #{$size};
     -moz-border-radius: #{$size} #{$size} #{$size} #{$size};

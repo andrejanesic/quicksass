@@ -1,7 +1,34 @@
-/// Creates font and line height helper classes based on size matrix $text-sizes
-/// @require values, @see $text-sizes
-///                  @see $text-size-base
-///                  @see $line-height
+/// Creates font and line height helper classes based on the following params:
+
+/// @param {Map} $font-families - Map of typefaces, used to generate font family
+/// helper classes
+$font-families: (
+  sans: (Helvetica, Arial, sans-serif),
+  serif: (Georgia, Arial, sans-serif),
+  default: sans
+) !default;
+
+/// @param {Number} $text-size-base - Cross-device text base size
+$text-size-base: 1rem !default;
+
+/// @param {Map} $text-sizes - Matrix for responsive text sizes.
+/// Each row corresponds to one breakpoint size, with "null" being the default.
+/// One helper class is generated for each given size
+$text-sizes: (
+  null: (1, 1.2, 1.4, 1.6, 2, 2.8, 4),
+  sm: (1, 1.2, 1.4, 1.6, 2, 2.8, 4),
+  md: (1, 1.2, 1.4, 1.6, 2, 2.8, 4),
+  lg: (1, 1.2, 1.4, 1.6, 2, 2.8, 4),
+  xl: (1, 1.2, 1.4, 1.6, 2, 2.8, 4)
+) !default;
+
+/// @param {List} $line-height - Line height settings
+/// First argument controls whether line height should be set at all.
+/// Second argument controls how much the line height property should be
+/// incremented, with its base value calculated using parameters
+/// @see $text-size-base and @see $text-sizes
+$line-height: (true, 0.3rem) !default;
+
 @each $bp in map-keys($text-sizes) {
   $bp-infix: "";
   @if $bp != null {
